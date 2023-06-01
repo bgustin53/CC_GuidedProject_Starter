@@ -4,15 +4,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
-    [SerializeField] private CameraFollow mainCamera;
+    [SerializeField] private Camera firstPersonCamera;
+    [SerializeField] private Camera thirdPersonCamera;
     private Vector3 moveDirection;
-    private bool inThirdPerson;
-    private Renderer objectRenderer;
-
-    private void Start()
-    {
-        objectRenderer = GetComponent<Renderer>();
-    }
 
     void Update()
     {
@@ -47,15 +41,15 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Tab))
         {
-            if(inThirdPerson)
+            if(firstPersonCamera.enabled)
             {
-                mainCamera.CameraView(5, 3);
-                objectRenderer.enabled = true;
+                thirdPersonCamera.enabled = true;
+                firstPersonCamera.enabled = false;
             }
             else
             {
-                mainCamera.CameraView(0,0.5f);
-                objectRenderer.enabled = false;
+                thirdPersonCamera.enabled = false;
+                firstPersonCamera.enabled = true;
             }
         }
 
