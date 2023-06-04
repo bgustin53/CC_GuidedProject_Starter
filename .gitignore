@@ -48,8 +48,8 @@ ExportedObj/
 *.VC.db
 
 # Tif files solely in the Terrain Sample Asset pack
-/TerrainSampleAssets/*.tif
-/TerrainSampleAssets/*.tif.meta
+TerrainSampleAssets/**/*.tif
+TerrainSampleAssets/**/*.tif.meta
 
 # Unity3D generated meta files
 *.pidb.meta
